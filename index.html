@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maven Care</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-box">
+        <!-- Header with logo and navigation -->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Maven Logo">
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#">Why Maven</a></li>
+                        <li><a href="#">Workouts to do</a></li>
+                        <li><a href="#">Food to eat</a></li>
+                    </ul>
+                    <ul class="nav-about">
+                        <li><button class="nav-btn">About Us</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    <!-- Main section -->
+    <main>
+        <div class="container main-content">
+            <!-- Wrap the animated text and image-section inside a new search-container div -->
+            <div class="search-container">
+                <div class="content-wrapper">
+                    <!-- Add the animated text inside a new div -->
+                    <div class="text-section">
+                        <h2 id="animated-text"></h2>
+                    </div>
+
+                </div>
+
+                <!-- Larger Search bar at the bottom -->
+                <div class="search-bar">
+                    <input type="text" id="symptoms-input" placeholder="Enter your symptoms" onkeydown="handleKeyPress(event)">
+                    <button onclick="getDiagnosis()">Search</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        // Typewriter effect for the text
+        const text = "Knowledge is the first step to healing - start your journey.";
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("animated-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100); // Adjust the speed by changing the time (in milliseconds)
+            }
+        }
+        
+        // Trigger the typewriter effect when the page loads
+        window.onload = function () {
+            typeWriter();
+        };
+    </script>
+        
+        
+    </div>
+
+    <script>
+    // Function to handle "Enter" key press and trigger search
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            getDiagnosis();
+        }
+    }
+
+    // Function to redirect to the results page with search query
+    function getDiagnosis() {
+        const symptoms = document.getElementById('symptoms-input').value.trim();
+
+        if (symptoms === '') {
+            alert('Please enter your symptoms.');
+            return;
+        }
+
+        // Redirect to the results page and pass symptoms as a query parameter
+        window.location.href = `results.html?symptoms=${encodeURIComponent(symptoms)}`;
+    }
+    </script>
+</body>
+</html>

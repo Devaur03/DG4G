@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maven Care - Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for collapsible blocks */
+        .result-block {
+            border: 1px solid #394B42;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #F9F9F9;
+        }
+        .arrow {
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .arrow.active {
+            transform: rotate(90deg);
+        }
+        .content {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+        }
+        .content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        <!-- Header with logo and navigation -->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Maven Logo">
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Citations</a></li>
+                    </ul>
+                    <ul class="nav-about">
+                        <li><button class="nav-btn">About Us</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Results section -->
+        <main>
+            <div class="container">
+                <h1>Results</h1>
+
+                <!-- Most Probable Disease -->
+                <div class="result-block">
+                    <div class="arrow" onclick="toggleContent('mostProbable')"> Most Probable Disease</div>
+                    <div id="mostProbable" class="content">
+                        <h3>Solution and Medicines</h3>
+                        <p id="solutions"></p>
+                        <h3>Recovery Steps</h3>
+                        <p id="recovery"></p>
+                        <h3>Causes</h3>
+                        <p id="causes"></p>
+                        <h3>Precautions</h3>
+                        <p id="precautions"></p>
+                    </div>
+                </div>
+
+                <!-- Second Most Probable Disease -->
+                <div class="result-block">
+                    <div class="arrow" onclick="toggleContent('secondProbable')"> Second Most Probable Disease</div>
+                    <div id="secondProbable" class="content">
+                        <h3>Solution and Medicines</h3>
+                        <p id="solutions-1"></p>
+                        <h3>Recovery Steps</h3>
+                        <p id="recovery-1"></p>
+                        <h3>Causes</h3>
+                        <p id="causes-1"></p>
+                        <h3>Precautions</h3>
+                        <p id="precautions-1"></p>
+                    </div>
+                </div>
+
+                <!-- Third Most Probable Disease -->
+                <div class="result-block">
+                    <div class="arrow" onclick="toggleContent('thirdProbable')"> Third Most Probable Disease</div>
+                    <div id="thirdProbable" class="content">
+                        <h3>Solution and Medicines</h3>
+                        <p id="solutions-2"></p>
+                        <h3>Recovery Steps</h3>
+                        <p id="recovery-2"></p>
+                        <h3>Causes</h3>
+                        <p id="causes-2"></p>
+                        <h3>Precautions</h3>
+                        <p id="precautions-2"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    // Toggle function for collapsible content
+    function toggleContent(id) {
+        const content = document.getElementById(id);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+
+    // Simulated data for demonstration
+    window.onload = function () {
+        const data = {
+            solutions: 'Rest, hydration, over-the-counter cold medicines.',
+            recovery: 'Stay home, drink fluids, take rest, use humidifiers.',
+            causes: 'Viral infection caused by rhinovirus.',
+            precautions: 'Wash hands regularly, avoid close contact with sick individuals.',
+            solutions1: 'Antiviral medications, rest, fluids.',
+            recovery1: 'Stay home, monitor symptoms.',
+            causes1: 'Influenza virus infection.',
+            precautions1: 'Get vaccinated, wash hands regularly.',
+            solutions2: 'Antihistamines, avoiding allergens.',
+            recovery2: 'Consult an allergist if severe.',
+            causes2: 'Pollen, dust, animal dander.',
+            precautions2: 'Keep windows closed, use air purifiers.'
+        };
+
+        document.getElementById('solutions').innerText = data.solutions;
+        document.getElementById('recovery').innerText = data.recovery;
+        document.getElementById('causes').innerText = data.causes;
+        document.getElementById('precautions').innerText = data.precautions;
+
+        document.getElementById('solutions-1').innerText = data.solutions1;
+        document.getElementById('recovery-1').innerText = data.recovery1;
+        document.getElementById('causes-1').innerText = data.causes1;
+        document.getElementById('precautions-1').innerText = data.precautions1;
+
+        document.getElementById('solutions-2').innerText = data.solutions2;
+        document.getElementById('recovery-2').innerText = data.recovery2;
+        document.getElementById('causes-2').innerText = data.causes2;
+        document.getElementById('precautions-2').innerText = data.precautions2;
+    };
+    </script>
+</body>
+</html>
